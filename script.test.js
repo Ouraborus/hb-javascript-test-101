@@ -3,7 +3,11 @@ import {
     filterNegativeNumbers,
     functionalFilterNegativeNumbers,
     mapNumbersIntoStrings,
-    functionalMapNumbersIntoStrings
+    functionalMapNumbersIntoStrings,
+    printType,
+    isPalindrome,
+    Person,
+    printOutPersonAge
 } from "./script.js";
 
 describe('generateRandomNumber', ()=>{
@@ -44,13 +48,73 @@ describe('filterNegativeNumbers',() =>{
 });
 
 describe('mapNumbersIntoStrings',()=>{
-    var numbers = [-4,-8,-10,0,12,15,20];
+    const numbers = [-4,-8,-10,0,12,15,20];
+    const stringNumbers = ['-4','-8','-10','0','12','15','20'];
     var mapArray = mapNumbersIntoStrings(numbers);
     var functionalMapArray = functionalMapNumbersIntoStrings(numbers);
 
     validateArray(mapArray);
     validateArray(functionalMapArray);
+
+    test('Should return string array',() => {
+        expect(mapArray).toEqual(stringNumbers);
+        expect(functionalMapArray).toEqual(stringNumbers);
+    });
 });
+
+describe('printType',() =>{
+
+    test('Should call the console.log function',() =>{
+        const spy = jest.spyOn(global.console,'log');
+        printType(1);
+        expect(spy).toHaveBeenCalledWith('number');
+        printType('Hi!');
+        expect(spy).toHaveBeenCalledWith('string');        
+
+        spy.mockReset;
+        spy.mockRestore;
+    });
+});
+
+describe('isPalindrome', () =>{
+    test('Should return true if the string is palindrome',()=>{
+        const palindrome = isPalindrome('madam');
+        expect(palindrome).toBeTruthy();
+    });
+});
+
+describe('Person',() => {
+    var spy = jest.spyOn(global.console,'log');
+    var person = new Person('Jhon',25);
+    test('Should print the name in the console', () =>{
+        person.printName();
+
+        expect(spy).toHaveBeenCalledWith('Jhon');
+        
+    });
+    describe('printOutPersonAge', () => {
+        test('Should return the age of the instantiated Person', () => {
+            printOutPersonAge(person);
+            expect(spy).toHaveBeenCalledWith(25);
+        });
+    });
+    spy.mockReset;
+    spy.mockRestore; 
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
