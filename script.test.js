@@ -11,7 +11,10 @@ import {
 } from "./script.js";
 
 describe('generateRandomNumber', ()=>{
-    var rgb = generateRandomNumber();
+    let {r,g,b} = generateRandomNumber();
+    let rgb = generateRandomNumber();
+    
+
     test('Should be a JSON object with 3 values', () => {
         expect(rgb).toMatchObject(expect.objectContaining({
             r: expect.any(Number),
@@ -20,12 +23,12 @@ describe('generateRandomNumber', ()=>{
         }))
     });
     test('Should contain 3 values less than 255 and greater than 0', () => {
-        expect(rgb.r).toBeGreaterThanOrEqual(0);
-        expect(rgb.g).toBeGreaterThanOrEqual(0);
-        expect(rgb.b).toBeGreaterThanOrEqual(0);        
-        expect(rgb.r).toBeLessThanOrEqual(255);
-        expect(rgb.g).toBeLessThanOrEqual(255);
-        expect(rgb.b).toBeLessThanOrEqual(255);
+        expect(r).toBeGreaterThanOrEqual(0);
+        expect(g).toBeGreaterThanOrEqual(0);
+        expect(b).toBeGreaterThanOrEqual(0);        
+        expect(r).toBeLessThanOrEqual(255);
+        expect(g).toBeLessThanOrEqual(255);
+        expect(b).toBeLessThanOrEqual(255);
     });
 });
 
