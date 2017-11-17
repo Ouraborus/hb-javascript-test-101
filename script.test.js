@@ -51,8 +51,8 @@ describe('filterNegativeNumbers',() =>{
 });
 
 describe('mapNumbersIntoStrings',()=>{
-    const numbers = [-4,-8,-10,0,10,12,15,20];
-    const stringNumbers = ['-4','-8','-10','0','10','12','15','20'];
+    const numbers = [-4,-8,-10,0,10,12,15,20,22];
+    const stringNumbers = ['-4','-8','-10','0','10','12','15','20','22'];
     var mapArray = mapNumbersIntoStrings(numbers);
     var functionalMapArray = functionalMapNumbersIntoStrings(numbers);
 
