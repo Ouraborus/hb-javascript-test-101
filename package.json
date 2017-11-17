@@ -5,7 +5,8 @@
   "private": true,
   "main": "script.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage",
+    "report-coverage": "cat ./coverage/lcov.info | codecov"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/Ouraborus/javascript-test-101#readme",
   "devDependencies": {
     "babel-preset-env": "^1.6.1",
+    "codecov.io": "^0.1.6",
     "jest": "^21.2.1"
   }
 }
